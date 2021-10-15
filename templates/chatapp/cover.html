@@ -1,0 +1,59 @@
+{% extends 'chatapp/index.html' %}
+{% load static %}
+
+{% block underlines %}
+    <div class="tooltip">
+      <span>Dashboard</span>
+      <span class="show">Ask a question</span>
+      <span>Analytics</span>
+    </div>
+
+{% endblock %}
+{% block content %}
+  <div class="card item w-auto">
+    <div class="card-header">
+        <div class="d-flex flex-row justify-content-between p-3 adiv text-white"> <i class="fas fa-chevron-left"></i> <span class="pb-3"><h>Ask any programming related question </h></span> <i class="fas fa-times"></i> </div>
+      </div>
+      <div class="card-body scroll">
+          <div class="d-flex justify-content-start flex-row p-3">
+              <div class="msg_cotainer">Hello and thankyou for visiting here. Please ask a question</div>
+          </div>
+          
+      </div>
+      <div class="card-footer bg-dark">
+          <div class="form-group input-group px-3 mt-3 mx-2 mb-2">
+            <textarea class="form-control text" rows="3" id="exampleFormControlTextarea2" placeholder="Type your message"></textarea>
+            <div class="input-group-append">
+              <button type="button" class="btn bg-success mx-2" id="sendbtn"><img src="{% static 'images/cursor.svg' %}"></button>
+                
+            </div>
+          </div>
+      </div>
+  </div>
+  <script type="text/javascript" src="{% static 'jquery-3.6.0.min.js' %}"></script>
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $('#sendbtn').click(function() {
+              var textinput = $('textarea.text').val()
+              var url = "{% url 'chatreply' %}"
+              $('div.card-body').append("<div class='textcont d-flex justify-content-end mb-4'>"+
+                  "<div class='msg_cotainer_send text-align-center'>"+ textinput + "</div")
+              $.ajax({
+                  url: url,
+                  type: 'GET',
+                  data: {message: textinput},
+                  success: function(json){
+                      // $('div.card-body').append("<div class='textcont d-flex justify-content-end mb-4'>"+
+                      //     "<div class='msg_cotainer_send text-align-center'>"+ json.message + "</div")
+                      $('div.card-body').append("<div class='d-flex justify-content-start mb-4'>"+
+                          "<div class='msg_cotainer'>"
+                          + json.replytext +"</div")
+                      $('textarea.text').val('');
+                      
+                  },
+              });
+
+          })
+      })
+  </script>
+{% endblock %}

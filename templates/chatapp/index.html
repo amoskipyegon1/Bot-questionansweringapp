@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <!-- <link rel="stylesheet" type="text/css" href="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' %}"> -->
+  <link href="{% static 'boxicons.min.css' %}" rel='stylesheet'>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'chatcss.css' %}">
+  <link href="{% static 'assets/dist/css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+</head>
+<style >
+	.msg_cotainer_send{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: 10px;
+	border-radius: 25px;
+	background-color: #78e08f;
+	padding: 10px;
+	position: relative;
+	}
+	.msg_cotainer{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 10px;
+	border-radius: 25px;
+	background-color: #82ccdd;
+	padding: 10px;
+	position: relative;
+	}
+	.send_btn{
+	border-radius: 0 15px 15px 0 !important;
+	background-color: rgba(0,0,0,0.3) !important;
+    border:0 !important;
+    color: rgb(240, 10, 10) !important;
+    cursor: pointer;
+	}
+	.msg_card_body{
+	    overflow-y: auto;
+	}
+	.scroll {
+		margin:4px, 4px;
+        padding:4px;
+        background-color: darkcyan;
+        height: 400px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align:justify;
+    }
+    .notscroll{
+    	overflow: hidden;
+    }
+    .fonts{
+    	font-size: 200%;
+    }
+    .item {
+	  position: sticky-top;
+	}
+	.shark-3 {
+	  bottom: 1rem;
+	  align-self: flex-end;
+	}
+</style>
+
+<body>
+  <nav>
+    <div class="sidebar-top">
+      <span class="shrink-btn">
+      	<img src="{% static 'images/justify.svg' %}">
+        <!-- <i class='bx bx-chevron-left'></i> -->
+      </span>
+      <img src="{% static 'images/house-door.svg' %}" class="logo" alt="">
+      <h3 class="hide">Python Bot</h3>
+    </div>
+
+    <div class="search">
+    	<!-- <img class="my-2" src="{% static 'images/search.svg' %}">
+      <i class='bx bx-search'></i>
+        <input type="text" class="hide" placeholder="Quick Search ..."> -->
+    </div>
+
+    <div class="sidebar-links">
+      <ul>
+        <div class="active-tab"></div>
+        <li class="tooltip-element" data-tooltip="0">
+          <a href="{% url 'home' %}" data-active="0" style="text-decoration: none;">
+            <div class="icon">
+              <img src="{% static 'images/grid-3x3-gap-fill.svg' %}">
+            </div>
+            <span class="link hide">Dashboard</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="1">
+          <a href="{% url 'index' %}" class="active" data-active="1" style="text-decoration: none;">
+            <div class="icon">
+              <img src="{% static 'images/chat-dots.svg' %}">
+            </div>
+            <span class="link hide">Chat</span>
+          </a>
+        </li>
+        <li class="tooltip-element" data-tooltip="2" style="text-decoration: none;">
+          <a href="#" data-active="2" style="text-decoration: none;">
+            <div class="icon">
+              <img src="{% static 'images/gear.svg' %}">
+            </div>
+            <span class="link hide">Analytics</span>
+          </a>
+        </li>
+        {% block underlines %}
+        {% endblock %}
+      </ul>
+
+      
+    </div>
+
+    <div class="sidebar-footer">
+      <a href="#" class="account tooltip-element" data-tooltip="0">
+        <img src="{% static 'images/person-circle.svg' %}">
+      </a>
+      <div class="admin-user tooltip-element" data-tooltip="1">
+        <div class="admin-profile hide">
+          <img src="{% static 'images/person-circle.svg' %}">
+          <div class="admin-info">
+            <h3>Hey</h3>
+            <h5>{{ user }}</h5>
+          </div>
+        </div>
+        <a href="{% url 'logout' %}" class="log-out">
+          <img src="{% static 'images/arrow-clockwise.svg' %}">
+        </a>
+      </div>
+      <div class="tooltip">
+        <span class="show">{{ user }}</span>
+        <span>Logout</span>
+      </div>
+    </div>
+  </nav>
+
+
+  <main>
+    <div class="container d-flex justify-content-center">
+	    {% block content %}
+
+      {% endblock %}
+	    	
+	</div>
+    <p class="copyright">
+      &copy; 2021 - <span>Bot</span> All Rights Reserved.
+    </p>
+  </main>
+  <script type="text/javascript" src="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'app.js' %}"></script>
+      }
+</body>
+
+</html>

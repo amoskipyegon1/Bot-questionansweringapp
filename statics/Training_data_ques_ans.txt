@@ -1,0 +1,26 @@
+Name  type of artificial intelligence that takes advantage of a computer's ability to use logic, or statistics and probabilities, to solve a problem?
+Conventional AI
+What is PYTHONPATH?
+It is an environment variable which is used when a module is imported. Whenever a module is imported, PYTHONPATH is also looked up to check for the presence of the imported modules in various directories.
+What are python modules?
+Python modules are files containing Python code. This code can either be functions classes or variables. A Python module is a .py file containing executable code
+Name some commonly used built-in modules in Python?
+os, sys, math, random,datatime, and JSON
+What are global variables in Python?
+Global Variables:Variables declared outside a function or in global space are called global variables. These variables can be accessed by any function in the program.
+What are local variables 
+Local Variables:Any variable declared inside a function is known as a local variable. This variable is present in the local space and not in the global space.
+Is indentation required in python?
+Indentation is necessary for Python. It specifies a block of code.
+What is the difference between Python Arrays and lists?
+Arrays and lists, in Python, have the same way of storing data. But, arrays can hold only a single data type elements whereas lists can hold any data type elements.
+What are python iterators?
+Iterators are objects which can be traversed though or iterated upon.
+What is pickling and unpickling?
+Pickle module accepts any Python object and converts it into a string representation and dumps it into a file by using dump function, this process is called pickling. While the process of retrieving original Python objects from the stored string representation is called unpickling.
+How are classes created in Python? 
+Class in Python is created using the class keyword.
+Why is it important for entrepreneurs to talk with industry experts when developing new business concepts?
+The industry experts typically provide useful information. Industry experts have in-depth knowledge about a specific field.
+What type of software do many businesses require be installed on computer systems as a security feature?
+Firewall software is intended to prevent unauthorized access to a computer network
